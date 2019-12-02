@@ -1,6 +1,6 @@
 # Integrate MediatR with Hangfire
 
-To schedule your commands, execute them parallel with retry option and monitor them. `Hangfire` gives me all these kind of features but You have to have `public` method which You have to pass to `Hangifre` method (for example `BackgroundJob.Enqueue`). This is a problem – with mediator pattern You cannot pass public method of handler because You have decoupled it from invoker. So You need special way to integrate `MediatR` with `Hangfire` without affecting basic assumptions.
+To schedule your commands, execute them parallel with retry option and monitor them. `Hangfire` gives you all these kind of features but You have to have `public` method which You have to pass to `Hangifre` method (for example `BackgroundJob.Enqueue`). This is a problem – with mediator pattern You cannot pass public method of handler because You have decoupled it from invoker. So You need special way to integrate `MediatR` with `Hangfire` without affecting basic assumptions.
 
 I presented the way of processing commands asynchronously using `MediatR` and `Hangfire`. With this approach we have:
 1. Decoupled invokers and handlers of commands.
@@ -37,3 +37,14 @@ public class MyMController : Controller
   }
 ```
 And our commands are scheduled, invoked and monitored by `Hangfire`.
+
+#### Installing CommandScheduler
+[CommandScheduler](https://www.nuget.org/packages/CommandScheduler/) is available as a NuGet package. You can install it using the NuGet Package Console window:
+
+`Install-Package CommandScheduler`
+
+Or via the .NET Core command line interface:
+
+`dotnet add package CommandScheduler`
+
+Either commands, from Package Manager Console or .NET Core CLI, will download and install CommandScheduler and all required dependencies.
