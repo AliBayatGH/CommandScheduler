@@ -40,8 +40,9 @@ namespace CommandSchedular
 
         private System.Type GetType(MediatorSerializedObject mediatorSerializedObject)
         {
+
             var assemblies = GetAssemblies().ToList()
-               .Where(x => x.GetName().Name.EndsWith("Application.Commands"))
+               .Where(x => x.GetName().Name.EndsWith(mediatorSerializedObject.AssemblyName))
                .Select(x => x.GetName().FullName)
                .ToList();
 
