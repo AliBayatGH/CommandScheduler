@@ -1,17 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Ali Bayat</Authors>
     <Company>HSP</Company>
-    <Description>Asynchronous CQRS Commands using `MediatR` and `Hangfire`</Description>
+    <Description>Asynchronous CQRS Commands using MediatR and Hangfire</Description>
     <PackageId>CommandScheduler</PackageId>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <PackageTags>CQRS Command, MediatR, Hangfire, AsyncCommand</PackageTags>
+    <PackageTags>MediatR, Hangfire, AsyncCommand</PackageTags>
     <PackageLicenseFile>license.md</PackageLicenseFile>
-    <Version>1.0.2</Version>
+    <Version>1.0.4</Version>
   </PropertyGroup>
 
   <ItemGroup>
