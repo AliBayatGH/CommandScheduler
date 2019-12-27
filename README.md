@@ -1,6 +1,9 @@
 # Integrate MediatR with Hangfire
 
-To schedule your commands, execute them parallel with retry option and monitor them. `Hangfire` gives me all these kind of features but You have to have `public` method which You have to pass to `Hangifre` method (for example `BackgroundJob.Enqueue`). This is a problem – with mediator pattern You cannot pass public method of handler because You have decoupled it from invoker. So You need special way to integrate `MediatR` with `Hangfire` without affecting basic assumptions.
+## Give a Star! :star:
+If you like this project, learn something or you are using it in your applications, please give it a star. Thanks!
+
+To schedule your commands, execute them parallel with retry option and monitor them. `Hangfire` gives me all these kind of features but You have to have `public` method which You have to pass to `Hangifre` method (for example `BackgroundJob.Enqueue`). This is a problem â€“ with mediator pattern You cannot pass public method of handler because You have decoupled it from invoker. So You need special way to integrate `MediatR` with `Hangfire` without affecting basic assumptions.
 
 I presented the way of processing commands asynchronously using `MediatR` and `Hangfire`. With this approach we have:
 1. Decoupled invokers and handlers of commands.
@@ -14,7 +17,7 @@ These benefits are very important during development using eventual consistency 
 For this, In `CommandScheduler` we difined 4 classes:
 * `CommandsScheduler`  serializes commands and sends them to `Hangfire`.
 * `CommandsExecutor`  responods to `Hangfire` jobs execution, deserializes commands and sends them to handlers using `MediatR`.
-* `MediatorSerializedObject`  wrapper class for serialized/deserialized commands with additional properties – command type and additional description.
+* `MediatorSerializedObject`  wrapper class for serialized/deserialized commands with additional properties â€“ command type and additional description.
 *  `MediatorExtension` extension methods for `IMediator`
 
 ```csharp
