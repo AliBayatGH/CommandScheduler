@@ -40,6 +40,8 @@ namespace CommandSchedular
 
         private System.Type GetType(MediatorSerializedObject mediatorSerializedObject)
         {
+            if (mediatorSerializedObject?.AssemblyName == null)
+                return null;
 
             var assemblies = GetAssemblies().ToList()
                .Where(x => x.GetName().Name.EndsWith(mediatorSerializedObject.AssemblyName))
@@ -68,7 +70,7 @@ namespace CommandSchedular
 
                 foreach (var reference in asm.GetReferencedAssemblies())
                 {
-                    if (reference.Name.StartsWith("HSP") && !list.Contains(reference.FullName))
+                    if (/*reference.Name.StartsWith("HSP") &&*/ !list.Contains(reference.FullName))
                     {
                         stack.Push(Assembly.Load(reference));
                         list.Add(reference.FullName);
