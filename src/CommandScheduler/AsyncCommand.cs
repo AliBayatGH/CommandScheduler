@@ -79,12 +79,13 @@ namespace CommandSchedular
         private MediatorSerializedObject SerializeObject(object mediatorObject, string description)
         {
             string fullTypeName = mediatorObject.GetType().FullName;
+            var assemblyName = mediatorObject.GetType().Assembly.GetName().Name;
             string data = JsonConvert.SerializeObject(mediatorObject, new JsonSerializerSettings
             {
                 Formatting = Formatting.None,
             });
 
-            return new MediatorSerializedObject(fullTypeName, data, description);
+            return new MediatorSerializedObject(fullTypeName, data, description, assemblyName);
         }
     }
 }

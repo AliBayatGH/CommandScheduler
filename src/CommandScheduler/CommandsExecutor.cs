@@ -52,10 +52,11 @@ namespace CommandSchedular
                 .GetTypes()
                 .Where(t => t.FullName == mediatorSerializedObject.FullTypeName)
                 .ToList()).First();
+
             return type;
         }
 
-        private IEnumerable<Assembly> GetAssemblies()
+        private IEnumerable<Assembly> GetAssemblies(string companyNamespace= "WebApplication1")
         {
             var list = new List<string>();
             var stack = new Stack<Assembly>();
@@ -70,7 +71,7 @@ namespace CommandSchedular
 
                 foreach (var reference in asm.GetReferencedAssemblies())
                 {
-                    if (/*reference.Name.StartsWith("HSP") &&*/ !list.Contains(reference.FullName))
+                    if (reference.Name.StartsWith(companyNamespace) && !list.Contains(reference.FullName))
                     {
                         stack.Push(Assembly.Load(reference));
                         list.Add(reference.FullName);

@@ -4,6 +4,13 @@ namespace CommandSchedular
 {
     public class MediatorSerializedObject
     {
+        /// <summary>
+        /// Create an instance of MediatorSerializedObject
+        /// </summary>
+        /// <param name="fullTypeName"></param>
+        /// <param name="data"></param>
+        /// <param name="additionalDescription"></param>
+        /// <param name="assemblyName"></param>
         public MediatorSerializedObject(string fullTypeName, string data, string additionalDescription, string assemblyName = "")
         {
             FullTypeName = fullTypeName;
