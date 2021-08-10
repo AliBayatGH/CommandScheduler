@@ -41,13 +41,23 @@ public class MyMController : Controller
 ```
 And our commands are scheduled, invoked and monitored by `Hangfire`.
 
-#### Installing CommandScheduler
-[CommandScheduler](https://www.nuget.org/packages/CommandScheduler/) is available as a NuGet package. You can install it using the NuGet Package Console window:
+## Installation
 
+Install the package via NuGet first:
 `Install-Package CommandScheduler`
 
 Or via the .NET Core command line interface:
-
 `dotnet add package CommandScheduler`
 
 Either commands, from Package Manager Console or .NET Core CLI, will download and install CommandScheduler and all required dependencies.
+
+The CommandScheduler includes a IServiceCollection.AddCommandsScheduler(Connection, Assembly) extension method, allowing you to register CommandScheduler.
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+  services.AddControllers();
+
+  services.AddCommandsScheduler(Configuration.GetConnectionString("HangfireConnection"), typeof(Startup));
+}
+```
