@@ -3,7 +3,7 @@ using MediatR;
 using Newtonsoft.Json;
 using System;
 
-namespace CommandSchedular
+namespace CommandScheduler
 {
     public class AsyncCommand
     {
@@ -25,7 +25,6 @@ namespace CommandSchedular
         {
             return BackgroundJob.Enqueue(() => _commandsExecutor.ExecuteCommand(mediatorSerializedObject));
         }
-
 
         public string Enqueue(IRequest request, string parentJobId, JobContinuationOptions continuationOption, string description = null)
         {

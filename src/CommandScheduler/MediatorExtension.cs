@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using System;
 
-namespace CommandSchedular
+namespace CommandScheduler
 {
     public static class MediatorExtension
     {
@@ -16,6 +16,7 @@ namespace CommandSchedular
         {
             return new AsyncCommand(new CommandsExecutor(mediator)).Enqueue(request, description);
         }
+
         /// <summary>
         ///  Creates a new background job based on a specified method call expression
         ///  and schedules it to be enqueued at the given moment of time.
@@ -28,6 +29,7 @@ namespace CommandSchedular
         {
             new AsyncCommand(new CommandsExecutor(mediator)).Schedule(request, scheduleAt, description);
         }
+
         /// <summary>
         /// Creates a new background job based on a specified method call expression
         /// and schedules it to be enqueued at the given moment of time.

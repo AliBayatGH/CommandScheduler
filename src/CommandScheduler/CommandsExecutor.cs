@@ -6,7 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 
-namespace CommandSchedular
+namespace CommandScheduler
 {
     public class CommandsExecutor
     {
@@ -79,8 +79,6 @@ namespace CommandSchedular
                 }
             }
             while (stack.Count > 0);
-
         }
-
     }
 }

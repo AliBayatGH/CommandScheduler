@@ -1,4 +1,4 @@
-﻿using CommandSchedular;
+﻿using CommandScheduler;
 using Hangfire;
 using Hangfire.SqlServer;
 using MediatR;

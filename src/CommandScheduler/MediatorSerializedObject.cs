@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace CommandSchedular
+namespace CommandScheduler
 {
     public class MediatorSerializedObject
     {
@@ -20,12 +20,9 @@ namespace CommandSchedular
         }
 
         public string FullTypeName { get; private set; }
-
         public string Data { get; private set; }
-
         public string AdditionalDescription { get; private set; }
         public string AssemblyName { get; private set; }
-
 
         /// <summary>
         /// Override for Hangfire dashboard display.
