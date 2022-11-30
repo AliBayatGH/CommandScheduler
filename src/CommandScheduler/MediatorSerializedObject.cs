@@ -23,7 +23,7 @@ namespace CommandScheduler
         public string Data { get; private set; }
         public string AdditionalDescription { get; private set; }
         public string AssemblyName { get; private set; }
-
+        public int Developer { get; private set; }
         /// <summary>
         /// Override for Hangfire dashboard display.
         /// </summary>
